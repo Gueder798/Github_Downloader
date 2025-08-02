@@ -5,10 +5,7 @@ jobs:
   download:
     runs-on: ubuntu-latest
     steps:
-    - name: Prepare tools in need
-      run: |
-        sudo -E apt update
-        sudo apt install wget
+    
 
     - name: Download
       run: |

@@ -10,11 +10,34 @@ jobs:
     - name: Download
       run: |
         mkdir final
-        cd final
-        wget https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso
+        wget https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/virtio-win-0.1.173-1/virtio-win-0.1.173.iso -O ./final/1.iso
+        wget https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/virtio-win-0.1.173-2/virtio-win-0.1.173.iso -O ./final/2.iso
+        wget https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/virtio-win-0.1.173-3/virtio-win-0.1.173.iso -O ./final/3.iso
+        wget https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/virtio-win-0.1.173-4/virtio-win-0.1.173.iso -O ./final/4.iso
+        wget https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/virtio-win-0.1.173-5/virtio-win-0.1.173.iso -O ./final/5.iso
+        wget https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/virtio-win-0.1.173-6/virtio-win-0.1.173.iso -O ./final/6.iso
+        wget https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/virtio-win-0.1.173-7/virtio-win-0.1.173.iso -O ./final/7.iso
+        wget https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/virtio-win-0.1.173-8/virtio-win-0.1.173.iso -O ./final/8.iso
+        wget https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/virtio-win-0.1.173-9/virtio-win-0.1.173.iso -O ./final/9.iso
 
-    - name: Upload
-      uses: actions/upload-artifact@v4
-      with:
-        name: Final
-        path: ./final/*
+    - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+        with:
+          tag_name: v1.0
+          release_name: Release 1.0
+          draft: false
+          prerelease: false
+          files: |
+            ./final/1.iso
+            ./final/2.iso
+            ./final/3.iso
+            ./final/4.iso
+            ./final/5.iso
+            ./final/6.iso
+            ./final/7.iso
+            ./final/8.iso
+            ./final/9.iso
+            

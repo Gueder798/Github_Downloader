@@ -7,7 +7,6 @@ jobs:
   download:
     runs-on: ubuntu-latest
     steps:
-    
 
     - name: Download
       run: |
@@ -25,20 +24,19 @@ jobs:
     - name: Create GitHub Release
       uses: softprops/action-gh-release@v2
       env:
-          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
-        with:
-          tag_name: v1.0
-          release_name: Release 1.0
-          draft: false
-          prerelease: false
-          files: |
-            ./final/1.iso
-            ./final/2.iso
-            ./final/3.iso
-            ./final/4.iso
-            ./final/5.iso
-            ./final/6.iso
-            ./final/7.iso
-            ./final/8.iso
-            ./final/9.iso
-            
+        GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+      with:
+        tag_name: v1.0
+        release_name: Release 1.0
+        draft: false
+        prerelease: false
+        files: |
+          ./final/1.iso
+          ./final/2.iso
+          ./final/3.iso
+          ./final/4.iso
+          ./final/5.iso
+          ./final/6.iso
+          ./final/7.iso
+          ./final/8.iso
+          ./final/9.iso
